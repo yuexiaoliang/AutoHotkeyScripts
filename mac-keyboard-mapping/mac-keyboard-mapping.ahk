@@ -62,9 +62,9 @@ LAlt & `::Send !{Esc}; Cmd+` -> Switch Same-App Windows
 !+Down::Send +^{End}       ; Cmd+Shift+Down -> Select to Doc End
 
 ; -- Delete --
-; Cmd+Delete: in File Explorer/Desktop -> delete file; elsewhere -> forward delete
-!Backspace::Send {Delete}
-!+Backspace::Send +{Delete}
+; Cmd+Delete -> Delete (release Alt first to avoid sending Alt+Delete)
+!Backspace::Send {Alt up}{Delete}
+!+Backspace::Send {Alt up}+{Delete}
 
 ; -- Other useful mappings --
 !l::Send !d           ; Cmd+L -> Focus Address Bar
