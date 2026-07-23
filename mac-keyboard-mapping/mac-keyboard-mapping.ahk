@@ -62,13 +62,17 @@ LAlt & `::Send !{Esc}; Cmd+` -> Switch Same-App Windows
 !+Down::Send +^{End}       ; Cmd+Shift+Down -> Select to Doc End
 
 ; -- Delete --
-!Backspace::Send {Delete}           ; Cmd+Delete -> Forward Delete (text editing)
+; In File Explorer: Cmd+Delete -> delete file (move to Recycle Bin)
+; Elsewhere: Cmd+Delete -> forward delete (text editing)
+#IfWinActive ahk_class CabinetWClass
+!Backspace::Send {Delete}
+#IfWinActive ahk_class Explorer
+!Backspace::Send {Delete}
+#IfWinNotActive ahk_class CabinetWClass
+#IfWinNotActive ahk_class Explorer
+!Backspace::Send {Delete}
+#IfWinNotActive
 !+Backspace::Send +{Delete}         ; Cmd+Shift+Delete
-
-; -- File Explorer: delete selected file --
-#IfWinActive ahk_class CabinetWClass    ; File Explorer
-!Backspace::Send {Delete}               ; Cmd+Delete -> Delete file (move to Recycle Bin)
-#IfWinActive
 
 ; -- Other useful mappings --
 !l::Send !d           ; Cmd+L -> Focus Address Bar
