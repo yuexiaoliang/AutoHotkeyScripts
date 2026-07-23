@@ -61,11 +61,6 @@ LAlt & `::Send !{Esc}; Cmd+` -> Switch Same-App Windows
 !+Up::Send +^{Home}        ; Cmd+Shift+Up -> Select to Doc Start
 !+Down::Send +^{End}       ; Cmd+Shift+Down -> Select to Doc End
 
-; -- Delete --
-; Cmd+Delete -> Delete (release Alt first to avoid sending Alt+Delete)
-!Backspace::Send {Alt up}{Delete}
-!+Backspace::Send {Alt up}+{Delete}
-
 ; -- Other useful mappings --
 !l::Send !d           ; Cmd+L -> Focus Address Bar
 !r::Send ^r           ; Cmd+R -> Refresh
