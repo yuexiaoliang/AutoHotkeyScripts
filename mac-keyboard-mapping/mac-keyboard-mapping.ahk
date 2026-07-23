@@ -63,15 +63,8 @@ LAlt & `::Send !{Esc}; Cmd+` -> Switch Same-App Windows
 
 ; -- Delete --
 ; Cmd+Delete: in File Explorer/Desktop -> delete file; elsewhere -> forward delete
-; Must wait for Alt to be released before sending {Delete}, otherwise Alt+Delete is sent
-!Backspace::
-    KeyWait, Alt
-    Send {Delete}
-return
-!+Backspace::
-    KeyWait, Alt
-    Send +{Delete}
-return
+!Backspace::Send {Delete}
+!+Backspace::Send +{Delete}
 
 ; -- Other useful mappings --
 !l::Send !d           ; Cmd+L -> Focus Address Bar
